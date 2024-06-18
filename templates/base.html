@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <nav class="bg-teal-gray-200 flex shadow-xl items-center justify-between  px-10 py-4">
+        <div class="">
+            <a href="" class="text-2xl text-gray-800 font-semibold capitalize">
+                domestic
+            </a>
+        </div>
+        <div class="flex items-center gap-x-6 justify-between">
+            {% if request.user.is_authenticated %}
+            <a href="" class="px-6 py-3 rounded-lg bg-teal-500 text-white">dashboard</a>
+            <a href="{% url 'logout' %}" class="px-6 py-3 rounded-lg bg-rose-500 text-white">logout</a>
+            {% else %}
+            <a href="{% url 'login' %}" class="px-6 py-3 rounded-lg bg-white text-gray-900 border-2 border-gray-800">login</a>
+            <a href="{% url 'register' %}" class="px-6 py-3 rounded-lg bg-blue-500 text-white">register</a>
+            {% endif %}
+        </div>
+    </nav>
+    {% block content  %}
+       
+    {% endblock %}
+    <footer class="bg-gray-800 px-10 py-10">
+        <div class="flex justify-between gap-10">
+            <div class="w-2/5">
+                <h2 class="text-2xl uppercase font-semibold text-white mb-2">househelp app</h2>
+                <p class="text-lg text-white font-light">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit molestiae tempore quae. Ducimus voluptatibus sed quisquam magni quo, animi error dignissimos et dolorem, ratione quibusdam! Accusamus adipisci saepe eveniet voluptatum?
+                </p>
+            </div>
+            <div class="w-3/4 flex justify-around">
+                <div class="flex flex-col">
+                    <a href="" class="text-lg text-white mb-2 font-light capitalize">home</a>
+                    <a href="" class="text-lg text-white mb-2 font-light capitalize">about</a>
+                    <a href="" class="text-lg text-white mb-2 font-light capitalize">contact</a>
+                    <a href="" class="text-lg text-white mb-2 font-light capitalize">privacy policy</a>
+                </div>
+                <div class="">
+                    <h2 class="text-2xl text-white capitalize mb-4">
+                        location
+                    </h2>
+                    <div class="flex items-center gap-x-6">
+                        <i class="fa-solid text-white text-2xl fa-phone"></i>
+                        <i class="fa-solid text-white text-2xl  fa-envelope"></i>
+                        <i class="fa-brands text-white text-2xl  fa-twitter"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </footer>
+    <script src="https://kit.fontawesome.com/a0e99f8a3c.js" crossorigin="anonymous"></script>
+</body>
+</html>

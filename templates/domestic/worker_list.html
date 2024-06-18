@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="">
+    <ul class="">
+        <li class="">
+            <a href="{% url 'list' %}" class="">All</a>
+        </li> 
+        {% for c in categories %}
+        <li class="{% if category.slug == c.slug %} text-red-500 {% endif %}">
+            <a href="{{c.get_absolute_url}}" class="">{{c.title}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<h1 class="text-4xl text-center">
+    {% if category %}{{ category.title }}{% else %}Workers
+    {% endif %}
+</h1>
+<div class="grid grid-cols-3  gap-4 ">
+{% for worker in workers %}
+
+    <div class="shadow-xl max-w-sm rounded-lg p-6 flex items-center justify-between">
+        <div class="">
+            <img src="{{worker.photo.url}}" alt="" class="w-[100px] h-[100px] rounded-full">
+        </div>
+    <div class="">
+        <h1 class="">
+            {{worker.first_name}} {{worker.last_name}}
+        </h1>
+        <p class="">
+            {{ worker.location }}
+        </p>
+    </div>
+    <a href="{{worker.get_absolute_url}}" class="bg-teal-500 rounded-lg px-6 py-3 text-white">
+        hire
+    </a>
+    </div>
+    
+{% endfor %}
+</div>
+{% endblock %}

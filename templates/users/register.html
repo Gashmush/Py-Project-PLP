@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<section class="my-40 bg-gray-200 px-10 mx-auto max-w-lg rounded-lg flex itme-center gap-4  py-6 shadow-2xl ">
+    <button class="px-6 py-3  text-white rounded-xl bg-teal-600">
+        <a href="{% url 'register_worker' %}" class="">
+            register as worker
+        </a>
+    </button>
+    <button class="px-6 py-3  text-white rounded-xl bg-blue-600">
+        <a href="{% url 'register_customer' %}" class="">
+            register as employee
+        </a>
+    </button>
+</section>
+
+{% endblock %}
